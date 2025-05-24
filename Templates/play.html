@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduPython Adventure - Play</title>
+  <link rel="icon" href="/static/images/favicon.jpg" type="image/png">
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="/static/js/main.js" defer></script>
+
+</head>
+
+<body>
+  <div class="header">
+    <img src="/static/images/EduPython Adventure.png" alt="" class="header-image" />
+  </div>
+
+  <div id="auth-container">
+    <button id="auth-button" onclick="handleAuthClick()">Login / Registrasi</button>
+    <div id="auth-dropdown" class="dropdown-menu" style="display: none;">
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="map-container">
+      <!-- HUD -->
+      <div class="hud-overlay-custom">
+        <span id="score">Score: <span style="color: red">0</span></span>
+        <div class="timer-bubble">
+          <div class="progress-circle">
+            <span id="timer-value">600</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Karakter -->
+      <div id="character" class="idle-down"></div>
+    </div>
+
+    <div class="code-area">
+      <div id="hint-hud">
+        <span id="hint-count">Hints: 3</span>
+        <img src="/static/images/hint-coin.png" id="hint-button" alt="Use Hint" title="Gunakan Hint" />
+      </div>
+      <div class="instruction">
+      </div>
+      <textarea id="code-editor" placeholder="Write your code here..."></textarea>
+      <div class="buttons">
+        <button onclick="runCode()" class="run-btn">
+          <img src="/static/images/run-btn.png" alt="RUN!" class="run-icon" />
+          RUN!
+        </button>
+        <button onclick="resetCode()" class="reset-btn">↻</button>
+      </div>
+      <div class="code-footer">
+        <button onclick="pauseGame()" class="pause-btn">⏸️</button>
+        <button onclick="resumeGame()" class="resume-btn" style="display: none">
+          ▶️
+        </button>
+        <button onclick="openHelp()" class="settings-btn">❓</button>
+        <button onclick="openSettings()" class="settings-btn">⚙️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="settingsModal" class="modal">
+    <div class="modal-content">
+      <h2>Settings</h2>
+      <div class="volume-control">
+        <span class="volume-icon">🔉</span>
+        <span class="volume-text">Volume</span>
+        <input type="range" id="volume" min="0" max="100" value="50" />
+      </div>
+    </div>
+  </div>
+
+  <div id="pause-menu" class="pause-popup" style="display: none">
+    <div class="pause-buttons">
+      <h2>Game Paused</h2>
+      <button onclick="resumeGame()">Resume</button>
+      <button onclick="saveProgress()">Save Progress</button>
+      <button onclick="exitGameplay()">Exit</button>
+    </div>
+  </div>
+
+  <div id="gameOverPopup" class="game-over-popup">
+    <h2>Game Over</h2>
+    <div class="score-display"><span id="final-score">0</span>%</div>
+    <div class="game-over-buttons">
+      <button class="exit-btn" onclick="exitGame()">Exit!</button>
+      <button class="retry-btn" onclick="retryGame()">Try Again!</button>
+    </div>
+  </div>
+  <div id="gameCompletePopup" class="completion-popup">
+    <h2>Congratulations!</h2>
+    <div class="score-display"><span id="final-complete-score">0</span>%</div>
+    <div class="completion-buttons">
+      <button class="retry-btn" onclick="retryGame()">Try Again!</button>
+      <button class="next-btn" onclick="goToNextLevel()">Next!➡️</button>
+    </div>
+  </div>
+
+  <div id="login-popup" class="popup" style="display: none;">
+    <div class="popup-content">
+      <h3>Login / Registrasi</h3>
+      <input type="text" id="username" class="username" placeholder="Username" />
+      <input type="password" id="password" class="username" placeholder="Password" />
+      <button onclick="submitLogin()">Login</button>
+    </div>
+  </div>
+
+  <div id="intro-popup" class="intro-popup" style="display: none;">
+    <div class="intro-bg">
+      <div class="dialogue-box" id="dialogue-box">
+      </div>
+    </div>
+  </div>
+
+  <div id="hint-popup" class="popup" style="display: none;">
+    <div class="popup-content">
+      <h3>Hint</h3>
+      <pre><code id="hint-text" class="code-hint language-python"></code></pre>
+      <button onclick="closeHintPopup()">Tutup</button>
+    </div>
+  </div>
+
+  <div id="help-popup" style="display: none;">
+    <div class="help-box">
+      <h2>Help</h2>
+      <div id="help-tab-content"></div>
+      <br />
+    </div>
+  </div>
+
+</body>
+<script src="/static/js/style.js"></script>
+<script>
+  const editor = document.getElementById("code-editor");
+  let lastEnterTime = 0;
+  let lastLineWasEmpty = false;
+
+  const autoPairs = {
+    "(": ")",
+    "[": "]",
+    "{": "}",
+    "'": "'",
+    '"': '"'
+  };
+
+  editor.addEventListener("keydown", function (e) {
+    const start = this.selectionStart;
+    const end = this.selectionEnd;
+    const value = this.value;
+
+    // ===== Auto Bracket Pairing =====
+    if (autoPairs[e.key]) {
+      e.preventDefault();
+      const open = e.key;
+      const close = autoPairs[e.key];
+      const selectedText = value.substring(start, end);
+      this.value = value.substring(0, start) + open + selectedText + close + value.substring(end);
+      this.selectionStart = this.selectionEnd = start + 1;
+      return;
+    }
+
+    // ===== Auto Delete Pairing =====
+    if (e.key === "Backspace" && start === end && start > 0) {
+      const prev = value[start - 1];
+      const next = value[start];
+      if (autoPairs[prev] && autoPairs[prev] === next) {
+        e.preventDefault();
+        this.value = value.substring(0, start - 1) + value.substring(start + 1);
+        this.selectionStart = this.selectionEnd = start - 1;
+        return;
+      }
+    }
+
+    // ===== Tab Key: Insert 4 spaces =====
+    if (e.key === "Tab") {
+      e.preventDefault();
+      const tab = "    ";
+      this.value = value.substring(0, start) + tab + value.substring(end);
+      this.selectionStart = this.selectionEnd = start + tab.length;
+      return;
+    }
+
+    // ===== Enter Key: Auto Indent + Reset =====
+    if (e.key === "Enter") {
+      const before = value.substring(0, start);
+      const lastLine = before.split("\n").pop();
+      const indentMatch = lastLine.match(/^(\s*)/);
+      let indent = indentMatch ? indentMatch[1] : "";
+
+      const now = Date.now();
+      const isEmptyLine = lastLine.trim() === "";
+
+      if (!lastLine.trim().endsWith(":") && lastLineWasEmpty && now - lastEnterTime < 800) {
+        indent = "";
+      }
+
+      lastEnterTime = now;
+      lastLineWasEmpty = isEmptyLine;
+
+      if (lastLine.trim().endsWith(":")) {
+        indent += "    ";
+      }
+
+      e.preventDefault();
+      this.value = value.substring(0, start) + "\n" + indent + value.substring(end);
+      this.selectionStart = this.selectionEnd = start + 1 + indent.length;
+      return;
+    }
+  });
+</script>
+</html>

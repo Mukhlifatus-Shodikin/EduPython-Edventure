@@ -1,0 +1,1066 @@
+[
+  {
+    "id": 1,
+    "question": "Buat variabel bernama 'nama' dan isi dengan teks 'Andi'.",
+    "answer": [
+      "nama = 'Andi'",
+      "nama='Andi'",
+      "nama= 'Andi'",
+      "nama ='Andi'",
+      "nama =\"Andi\"",
+      "nama=\"Andi\"",
+      "nama= \"Andi\"",
+      "nama = \"Andi\""
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 2,
+    "question": "Buat variabel 'umur' dan isi dengan angka 25.",
+    "answer": [
+      "umur = 25",
+      "umur=25",
+      "umur =25",
+      "umur= 25"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 3,
+    "question": "Tampilkan teks 'Hello, Dunia!' ke layar.",
+    "answer": [
+      "print('Hello, Dunia!')",
+      "print(\"Hello, Dunia!\")"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 4,
+    "question": "Gabungkan string 'Halo' dan 'Python' menggunakan operator '+'.",
+    "answer": [
+      "'Halo' + 'Python'",
+      "'Halo'+ 'Python'",
+      "'Halo' +'Python'",
+      "'Halo'+'Python'",
+      "\"Halo\" + \"Python\"",
+      "\"Halo\"+ \"Python\"",
+      "\"Halo\" +\"Python\"",
+      "\"Halo\"+\"Python\""
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 5,
+    "question": "Ubah string '123' menjadi tipe data integer.",
+    "answer": [
+      "int('123')",
+      "int(\"123\")"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 6,
+    "question": "Gunakan fungsi input untuk meminta nama dari pengguna dan simpan ke variabel 'nama'.",
+    "answer": [
+      "nama = input()",
+      "nama= input()",
+      "nama =input()",
+      "nama=input()",
+      "nama = input('')",
+      "nama =input('')",
+      "nama=input('')",
+      "nama= input('')"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 7,
+    "question": "Buat variabel 'nilai' yang berisi bilangan desimal 7.5.",
+    "answer": [
+      "nilai = 7.5",
+      "nilai=7.5",
+      "nilai =7.5",
+      "nilai= 7.5"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 8,
+    "question": "Tampilkan tipe data dari variabel 'x' menggunakan fungsi bawaan Python.",
+    "answer": [
+      "type(x)",
+      "print(type(x))"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 9,
+    "question": "Konversi nilai 10 menjadi string.",
+    "answer": [
+      "str(10)",
+      "str(5 + 5)"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 10,
+    "question": "Buat variabel 'aktif' dan isi dengan nilai boolean True.",
+    "answer": [
+      "aktif = True",
+      "aktif=True",
+      "aktif =True",
+      "aktif= True"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 11,
+    "question": "Tampilkan output dari variabel 'nama'.",
+    "answer": [
+      "print(nama)",
+      "print( nama)",
+      "print(nama )",
+      "print( nama )"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 12,
+    "question": "Buat variabel 'a' dengan nilai 10 dan variabel 'b' dengan nilai 5.",
+    "answer": [
+      "a = 10\nb = 5",
+      "a= 10\nb = 5",
+      "a =10\nb = 5",
+      "a = 10\nb= 5",
+      "a = 10\nb =5",
+      "a=10\nb=5"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 13,
+    "question": "Jumlahkan variabel a dan b, simpan hasilnya ke variabel c.",
+    "answer": [
+      "c = a + b",
+      "c=a+b",
+      "c =a+b",
+      "c= a+b",
+      "c = a+b",
+      "c=a +b",
+      "c=a+ b",
+      "c=a + b"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 14,
+    "question": "Tampilkan teks dengan kutipan di dalamnya, \"Dia berkata 'Halo'.\"",
+    "answer": [
+      "print(\"Dia berkata 'Halo'\")",
+      "print('Dia berkata \"Halo\"')"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 15,
+    "question": "Buat variabel 'hasil' dari pembagian 10 dibagi 2.",
+    "answer": [
+      "hasil = 10 / 2",
+      "hasil=10/2",
+      "hasil =10/2",
+      "hasil= 10/2",
+      "hasil=10 /2",
+      "hasil=10/ 2",
+      "hasil = 10/2",
+      "hasil= 10 / 2"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 16,
+    "question": "Gunakan input untuk meminta umur, dan ubah inputnya ke integer.",
+    "answer": [
+      "umur = int(input())",
+      "umur = int(input(''))"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 17,
+    "question": "Gunakan fungsi print untuk menampilkan nama dan umur.",
+    "answer": [
+      "print(nama, umur)",
+      "print(nama + ' ' + str(umur))"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 18,
+    "question": "Tampilkan hasil dari 5 dikali 4.",
+    "answer": [
+      "print(5 * 4)",
+      "print(20)"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 19,
+    "question": "Gunakan fungsi type untuk mengetahui tipe data 'True'.",
+    "answer": [
+      "type(True)",
+      "print(type(True))"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 20,
+    "question": "Tampilkan panjang dari string 'Python'.",
+    "answer": [
+      "len('Python')",
+      "print(len('Python'))"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 21,
+    "question": "Buat variabel list yang berisi angka 1 sampai 3.",
+    "answer": [
+      "list = [1, 2, 3]",
+      "list=[1,2,3]"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 22,
+    "question": "Ambil elemen pertama dari list [10, 20, 30].",
+    "answer": [
+      "[10, 20, 30][0]",
+      "mylist = [10, 20, 30]\nmylist[0]"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 23,
+    "question": "Buat string multiline menggunakan triple quote.",
+    "answer": [
+      "'''baris1\nbaris2'''",
+      "\"\"\"baris1\nbaris2\"\"\""
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 24,
+    "question": "Cek apakah 5 lebih besar dari 3.",
+    "answer": [
+      "5 > 3",
+      "print(5 > 3)"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 25,
+    "question": "Gunakan operator modulus (%) untuk mencari sisa bagi 10 dengan 3.",
+    "answer": [
+      "10 % 3",
+      "print(10 % 3)"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 26,
+    "question": "Ubah angka 1 menjadi boolean.",
+    "answer": [
+      "bool(1)",
+      "print(bool(1))"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 27,
+    "question": "Gunakan fungsi input dengan pesan 'Masukkan nama: '.",
+    "answer": [
+      "input('Masukkan nama: ')",
+      "nama = input('Masukkan nama: ')"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 28,
+    "question": "Periksa apakah angka 10 sama dengan 10.",
+    "answer": [
+      "10 == 10",
+      "print(10 == 10)"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 29,
+    "question": "Buat variabel teks 'angka' berisi '100' lalu ubah ke int.",
+    "answer": [
+      "angka = '100'\nint(angka)",
+      "int('100')"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 30,
+    "question": "Cek apakah sebuah string 'python' mengandung huruf 'p'.",
+    "answer": [
+      "'p' in 'python'",
+      "print('p' in 'python')"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 31,
+    "question": "Tampilkan huruf pertama dari string 'Belajar'.",
+    "answer": [
+      "'Belajar'[0]",
+      "teks = 'Belajar'\nteks[0]"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 32,
+    "question": "Gabungkan dua variabel string a dan b.",
+    "answer": [
+      "a + b",
+      "print(a + b)"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 33,
+    "question": "Buat variabel angka genap dari 2 sampai 6 sebagai list.",
+    "answer": [
+      "[2, 4, 6]",
+      "genap = [2, 4, 6]"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 34,
+    "question": "Tampilkan elemen terakhir dari list [1, 2, 3, 4].",
+    "answer": [
+      "[1, 2, 3, 4][-1]",
+      "mylist = [1,2,3,4]\nmylist[-1]"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 35,
+    "question": "Ubah 'halo' menjadi huruf besar semua.",
+    "answer": [
+      "'halo'.upper()",
+      "teks = 'halo'\nteks.upper()"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 36,
+    "question": "Ubah string 'PYTHON' menjadi huruf kecil.",
+    "answer": [
+      "'PYTHON'.lower()",
+      "teks = 'PYTHON'\nteks.lower()"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 37,
+    "question": "Gunakan komentar satu baris dalam Python.",
+    "answer": [
+      "# ini komentar",
+      "# komentar"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 38,
+    "question": "Tampilkan panjang dari string yang dimasukkan user.",
+    "answer": [
+      "len(input())",
+      "print(len(input()))"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 39,
+    "question": "Gabungkan angka 5 dan 10 lalu tampilkan hasilnya.",
+    "answer": [
+      "print(5 + 10)",
+      "hasil = 5 + 10\nprint(hasil)"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 40,
+    "question": "Buat list dari angka 1 hingga 5 dan cetak elemen ke-3.",
+    "answer": [
+      "angka = [1, 2, 3, 4, 5]\nprint(angka[2])",
+      "angka = list(range(1, 6))\nprint(angka[2])"
+    ],
+    "level": "beginner"
+  },
+  {
+    "id": 41,
+    "question": "Buat fungsi `luas_lingkaran` yang menerima parameter `r` (jari-jari) dan mengembalikan luas lingkaran (π * r * r). Cetak hasil untuk r = 7.",
+    "answer": [
+      "def luas_lingkaran(r):\n    return 3.14 * r * r\n\nprint(luas_lingkaran(7))",
+      "def luas_lingkaran(r):\n    luas = 3.14 * r * r\n    return luas\n\nprint(luas_lingkaran(7))"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 42,
+    "question": "Buat program yang menerima input angka dari pengguna dan cetak apakah angka tersebut genap atau ganjil.",
+    "answer": [
+      "x = int(input(\"Masukkan angka: \"))\nif x % 2 == 0:\n    print(\"Genap\")\nelse:\n    print(\"Ganjil\")",
+      "angka = int(input(\"Masukkan angka: \"))\nprint(\"Genap\" if angka % 2 == 0 else \"Ganjil\")"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 43,
+    "question": "Buat program untuk menjumlahkan semua angka dari 1 hingga 100 menggunakan perulangan.",
+    "answer": [
+      "total = 0\nfor i in range(1, 101):\n    total += i\nprint(total)",
+      "print(sum(range(1, 101)))"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 44,
+    "question": "Buat fungsi `is_palindrome(text)` yang mengembalikan True jika `text` adalah palindrome.",
+    "answer": [
+      "def is_palindrome(text):\n    return text == text[::-1]",
+      "def is_palindrome(text):\n    return text.lower() == text[::-1].lower()"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 45,
+    "question": "Buat program untuk mencetak semua bilangan kelipatan 5 dari 1 sampai 50.",
+    "answer": [
+      "for i in range(1, 51):\n    if i % 5 == 0:\n        print(i)",
+      "print([i for i in range(1, 51) if i % 5 == 0])"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 46,
+    "question": "Buat list dari angka 1 hingga 10, lalu buat list baru berisi kuadrat dari angka tersebut menggunakan list comprehension.",
+    "answer": [
+      "angka = list(range(1, 11))\nkuadrat = [x**2 for x in angka]\nprint(kuadrat)",
+      "kuadrat = [x**2 for x in range(1, 11)]\nprint(kuadrat)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 47,
+    "question": "Buat fungsi `faktorial(n)` yang menghitung faktorial dari `n` secara rekursif.",
+    "answer": [
+      "def faktorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * faktorial(n-1)",
+      "def faktorial(n):\n    return 1 if n == 0 else n * faktorial(n-1)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 48,
+    "question": "Buat program untuk membalik urutan huruf pada string \"Python\".",
+    "answer": [
+      "kata = \"Python\"\nprint(kata[::-1])",
+      "kata = \"Python\"\nterbalik = ''.join(reversed(kata))\nprint(terbalik)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 49,
+    "question": "Buat dictionary dengan pasangan key-nilai: \"nama\": \"Andi\", \"umur\": 21. Cetak nilai dari key \"nama\".",
+    "answer": [
+      "data = {\"nama\": \"Andi\", \"umur\": 21}\nprint(data[\"nama\"])",
+      "data = dict(nama=\"Andi\", umur=21)\nprint(data[\"nama\"])"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 50,
+    "question": "Buat fungsi `hitung_vokal(text)` yang menghitung jumlah huruf vokal dalam string.",
+    "answer": [
+      "def hitung_vokal(text):\n    return sum(1 for huruf in text if huruf.lower() in 'aiueo')",
+      "def hitung_vokal(text):\n    count = 0\n    for huruf in text.lower():\n        if huruf in 'aiueo':\n            count += 1\n    return count"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 51,
+    "question": "Buat fungsi `keliling_persegi(s)` yang menghitung keliling persegi. Cetak hasil untuk s = 8.",
+    "answer": [
+      "def keliling_persegi(s):\n    return 4 * s\n\nprint(keliling_persegi(8))",
+      "def keliling_persegi(s):\n    keliling = s * 4\n    return keliling\n\nprint(keliling_persegi(8))"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 52,
+    "question": "Buat program untuk mencetak semua karakter dari string \"Belajar\" satu per satu.",
+    "answer": [
+      "for huruf in \"Belajar\":\n    print(huruf)",
+      "kata = \"Belajar\"\nfor i in range(len(kata)):\n    print(kata[i])"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 53,
+    "question": "Buat fungsi `maks(a, b)` yang mengembalikan nilai terbesar dari dua angka.",
+    "answer": [
+      "def maks(a, b):\n    return a if a > b else b",
+      "def maks(a, b):\n    return max(a, b)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 54,
+    "question": "Diberikan list `[1, 3, 5, 7, 9]`, tambahkan angka 11 ke akhir list dan cetak hasilnya.",
+    "answer": [
+      "angka = [1, 3, 5, 7, 9]\nangka.append(11)\nprint(angka)",
+      "angka = [1, 3, 5, 7, 9]\nprint(angka + [11])"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 55,
+    "question": "Buat fungsi `reverse_words(teks)` yang membalik urutan kata dari sebuah string.",
+    "answer": [
+      "def reverse_words(teks):\n    return ' '.join(teks.split()[::-1])",
+      "def reverse_words(teks):\n    kata = teks.split()\n    kata.reverse()\n    return ' '.join(kata)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 56,
+    "question": "Buat program yang menerima input angka n dan mencetak n baris bintang (*).",
+    "answer": [
+      "n = int(input())\nfor i in range(n):\n    print(\"*\")",
+      "n = int(input())\nfor _ in range(n):\n    print(\"*\")"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 57,
+    "question": "Buat list `[2, 4, 6, 8, 10]` dan hitung rata-rata angkanya.",
+    "answer": [
+      "data = [2, 4, 6, 8, 10]\nrata = sum(data)/len(data)\nprint(rata)",
+      "data = [2, 4, 6, 8, 10]\nprint(sum(data) / 5)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 58,
+    "question": "Buat dictionary berisi 3 item: \"a\":1, \"b\":2, \"c\":3 lalu cetak semua key-nya.",
+    "answer": [
+      "data = {\"a\":1, \"b\":2, \"c\":3}\nprint(data.keys())",
+      "data = {\"a\":1, \"b\":2, \"c\":3}\nfor k in data:\n    print(k)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 59,
+    "question": "Buat fungsi `cek_prima(n)` yang mengembalikan True jika `n` adalah bilangan prima.",
+    "answer": [
+      "def cek_prima(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5)+1):\n        if n % i == 0:\n            return False\n    return True",
+      "def cek_prima(n):\n    return n > 1 and all(n % i != 0 for i in range(2, int(n**0.5)+1))"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 60,
+    "question": "Buat program yang meminta input nama dan mencetak jumlah huruf vokal dalam nama tersebut.",
+    "answer": [
+      "nama = input(\"Masukkan nama: \")\nprint(sum(1 for huruf in nama if huruf.lower() in 'aiueo'))",
+      "nama = input(\"Masukkan nama: \")\nvokal = 0\nfor huruf in nama.lower():\n    if huruf in 'aiueo':\n        vokal += 1\nprint(vokal)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 61,
+    "question": "Buat program yang mencetak bilangan ganjil dari 1 sampai 20.",
+    "answer": [
+      "for i in range(1, 21):\n    if i % 2 != 0:\n        print(i)",
+      "print([i for i in range(1, 21) if i % 2 != 0])"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 62,
+    "question": "Buat fungsi `perkalian(a, b)` yang mengembalikan hasil perkalian dua angka.",
+    "answer": [
+      "def perkalian(a, b):\n    return a * b"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 63,
+    "question": "Tulis program untuk mengecek apakah sebuah angka adalah kelipatan dari 3 dan 5.",
+    "answer": [
+      "x = int(input())\nif x % 3 == 0 and x % 5 == 0:\n    print(\"Kelipatan 3 dan 5\")"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 64,
+    "question": "Buat program untuk membalik list [1,2,3,4].",
+    "answer": [
+      "data = [1,2,3,4]\ndata.reverse()\nprint(data)",
+      "data = [1,2,3,4]\nprint(data[::-1])"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 65,
+    "question": "Gunakan try-except untuk menangani pembagian dengan nol.",
+    "answer": [
+      "try:\n    hasil = 10 / 0\nexcept ZeroDivisionError:\n    print(\"Tidak bisa dibagi dengan nol\")"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 66,
+    "question": "Buat program yang menghitung jumlah huruf kapital dalam sebuah string.",
+    "answer": [
+      "teks = input()\njumlah = sum(1 for c in teks if c.isupper())\nprint(jumlah)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 67,
+    "question": "Tulis program untuk menghitung jumlah digit dalam bilangan bulat positif.",
+    "answer": [
+      "x = int(input())\nprint(len(str(x)))"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 68,
+    "question": "Buat fungsi `pangkat(a, b)` yang mengembalikan a pangkat b.",
+    "answer": [
+      "def pangkat(a, b):\n    return a ** b"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 69,
+    "question": "Gunakan `enumerate()` untuk mencetak index dan elemen dari list ['a','b','c'].",
+    "answer": [
+      "data = ['a','b','c']\nfor i, val in enumerate(data):\n    print(i, val)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 70,
+    "question": "Buat program untuk menghitung jumlah kata dalam sebuah string.",
+    "answer": [
+      "teks = input()\nprint(len(teks.split()))"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 71,
+    "question": "Buat fungsi `nilai_terbesar(list_angka)` yang mengembalikan nilai terbesar.",
+    "answer": [
+      "def nilai_terbesar(list_angka):\n    return max(list_angka)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 72,
+    "question": "Tulis program untuk memeriksa apakah semua elemen dalam list adalah angka genap.",
+    "answer": [
+      "data = [2, 4, 6, 8]\nprint(all(x % 2 == 0 for x in data))"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 73,
+    "question": "Gunakan `set` untuk menghapus elemen duplikat dari list [1,2,2,3,4,4].",
+    "answer": [
+      "data = [1,2,2,3,4,4]\ndata = list(set(data))\nprint(data)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 74,
+    "question": "Buat fungsi yang menerima list dan mengembalikan list tanpa elemen genap.",
+    "answer": [
+      "def hapus_genap(data):\n    return [x for x in data if x % 2 != 0]"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 75,
+    "question": "Buat fungsi untuk menghitung selisih absolut dua bilangan.",
+    "answer": [
+      "def selisih(a, b):\n    return abs(a - b)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 76,
+    "question": "Gunakan fungsi `zip()` untuk menggabungkan dua list menjadi pasangan.",
+    "answer": [
+      "a = [1, 2, 3]\nb = ['satu', 'dua', 'tiga']\nprint(list(zip(a, b)))"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 77,
+    "question": "Tampilkan nilai tertinggi kedua dari list [10, 20, 30, 40].",
+    "answer": [
+      "data = [10, 20, 30, 40]\ndata.remove(max(data))\nprint(max(data))"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 78,
+    "question": "Buat fungsi `jumlah_digit(n)` untuk menghitung jumlah semua digit dalam angka.",
+    "answer": [
+      "def jumlah_digit(n):\n    return sum(int(d) for d in str(n))"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 79,
+    "question": "Gunakan lambda dan `filter` untuk menyaring angka genap dari list.",
+    "answer": [
+      "data = [1, 2, 3, 4, 5]\nprint(list(filter(lambda x: x % 2 == 0, data)))"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 80,
+    "question": "Gunakan `map()` untuk mengubah semua elemen list menjadi string.",
+    "answer": [
+      "data = [1, 2, 3]\ndata_str = list(map(str, data))\nprint(data_str)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 81,
+    "question": "Buat fungsi yang menerima list angka dan mengembalikan jumlah bilangan ganjil.",
+    "answer": [
+      "def hitung_ganjil(data):\n    return sum(1 for x in data if x % 2 != 0)"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 82,
+    "question": "Buat fungsi untuk membalik kata dalam sebuah kalimat tanpa membalik huruf tiap kata.",
+    "answer": [
+      "def balik_kalimat(teks):\n    return ' '.join(teks.split()[::-1])"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 83,
+    "question": "Buat fungsi untuk mencari elemen terbesar kedua dalam list tanpa sorting.",
+    "answer": [
+      "def terbesar_kedua(data):\n    m = max(data)\n    data.remove(m)\n    return max(data)"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 84,
+    "question": "Buat fungsi yang menerima string dan mengembalikan jumlah huruf vokal dan konsonan.",
+    "answer": [
+      "def hitung_vokal_konsonan(s):\n    vokal = 'aiueoAIUEO'\n    v = sum(1 for c in s if c in vokal)\n    k = sum(1 for c in s if c.isalpha() and c not in vokal)\n    return v, k"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 85,
+    "question": "Buat fungsi untuk mengecek apakah dua list memiliki elemen yang sama (set intersection).",
+    "answer": [
+      "def ada_sama(a, b):\n    return bool(set(a) & set(b))"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 86,
+    "question": "Buat fungsi yang menerima list angka dan mengembalikan jumlah angka yang lebih besar dari rata-ratanya.",
+    "answer": [
+      "def lebih_dari_rata(data):\n    avg = sum(data)/len(data)\n    return sum(1 for x in data if x > avg)"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 87,
+    "question": "Buat fungsi yang menerima string dan mengembalikan karakter yang paling sering muncul.",
+    "answer": [
+      "def paling_sering(teks):\n    from collections import Counter\n    return Counter(teks).most_common(1)[0][0]"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 88,
+    "question": "Buat fungsi untuk memeriksa apakah sebuah list terurut menaik.",
+    "answer": [
+      "def is_terurut(data):\n    return data == sorted(data)"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 89,
+    "question": "Buat fungsi untuk menghitung total nilai unik dalam list.",
+    "answer": [
+      "def total_unik(data):\n    return sum(set(data))"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 90,
+    "question": "Buat fungsi yang menerima list dan menghapus semua nilai duplikat (hanya sisakan yang unik).",
+    "answer": [
+      "def hanya_unik(data):\n    return [x for x in data if data.count(x) == 1]"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 91,
+    "question": "Perbaiki kode berikut agar menampilkan angka dari 1 sampai 5:\n\n```\nfor i in range(1, 5):\n    print(i)\n```",
+    "answer": [
+      "for i in range(1, 6):\n    print(i)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 92,
+    "question": "Perbaiki kode berikut agar menampilkan 'Genap' jika angka genap dan 'Ganjil' jika ganjil:\n\n```\nangka = 4\nif angka % 2 = 0:\n    print('Genap')\nelse:\n    print('Ganjil')\n```",
+    "answer": [
+      "angka = 4\nif angka % 2 == 0:\n    print('Genap')\nelse:\n    print('Ganjil')"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 93,
+    "question": "Kode berikut tidak mencetak angka kelipatan 3 dengan benar. Perbaikilah:\n\n```\nfor i in range(1, 10):\n    if i % 3:\n        print(i)\n```",
+    "answer": [
+      "for i in range(1, 10):\n    if i % 3 == 0:\n        print(i)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 94,
+    "question": "Perbaiki kode berikut agar mencetak total dari 1 hingga 5:\n\n```\ntotal = 0\nfor i in range(1, 5):\n    total = total + i\nprint(total)\n```",
+    "answer": [
+      "total = 0\nfor i in range(1, 6):\n    total += i\nprint(total)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 95,
+    "question": "Kode berikut tidak menampilkan output karena kondisi salah. Perbaiki agar mencetak 'Halo':\n\n```\nif False:\nprint('Halo')\n```",
+    "answer": [
+      "if True:\n    print('Halo')"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 96,
+    "question": "Perbaiki kode berikut agar mencetak semua elemen list:\n\n```\nangka = [1, 2, 3]\nfor x in angka:\nprint(x)\n```",
+    "answer": [
+      "angka = [1, 2, 3]\nfor x in angka:\n    print(x)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 97,
+    "question": "Kode berikut menghasilkan error. Perbaiki agar bisa berjalan:\n\n```\nnama = input('Masukkan nama')\nprint('Halo' + nama)\n```",
+    "answer": [
+      "nama = input('Masukkan nama: ')\nprint('Halo ' + nama)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 98,
+    "question": "Perbaiki logika agar mencetak angka genap dari 1 hingga 10:\n\n```\nfor i in range(10):\n    if i % 2 == 0:\n        continue\n    print(i)\n```",
+    "answer": [
+      "for i in range(1, 11):\n    if i % 2 == 0:\n        print(i)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 99,
+    "question": "Perbaiki kode berikut agar menampilkan huruf satu per satu dari string 'Python':\n\n```\nfor huruf in 'Python'\n    print(huruf)\n```",
+    "answer": [
+      "for huruf in 'Python':\n    print(huruf)"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 100,
+    "question": "Kode berikut tidak akan mencetak apa pun. Perbaikilah agar menampilkan 'Selesai':\n\n```\nwhile False:\n    print('Selesai')\n```",
+    "answer": [
+      "while True:\n    print('Selesai')\n    break"
+    ],
+    "level": "intermediate"
+  },
+  {
+    "id": 101,
+    "question": "Buat fungsi yang menerima list integer dan mengembalikan selisih antara elemen maksimum dan minimum.",
+    "answer": [
+      "def selisih_max_min(data):\n    return max(data) - min(data)"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 102,
+    "question": "Buat fungsi untuk mengecek apakah sebuah list adalah palindrom.",
+    "answer": [
+      "def is_palindrom(data):\n    return data == data[::-1]"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 103,
+    "question": "Buat fungsi yang menerima list dan mengembalikan list tanpa elemen None.",
+    "answer": [
+      "def hapus_none(data):\n    return [x for x in data if x is not None]"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 104,
+    "question": "Buat fungsi untuk menghitung berapa kali sebuah angka muncul dalam list.",
+    "answer": [
+      "def hitung_muncul(data, target):\n    return data.count(target)"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 105,
+    "question": "Buat fungsi yang mengembalikan elemen paling awal yang muncul lebih dari sekali dalam list.",
+    "answer": [
+      "def pertama_duplikat(data):\n    seen = set()\n    for x in data:\n        if x in seen:\n            return x\n        seen.add(x)"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 106,
+    "question": "Buat fungsi yang menerima list angka dan mengembalikan True jika semua elemen genap.",
+    "answer": [
+      "def semua_genap(data):\n    return all(x % 2 == 0 for x in data)"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 107,
+    "question": "Buat fungsi untuk menghitung jumlah pasangan elemen dalam list yang jumlahnya genap.",
+    "answer": [
+      "def pasangan_genap(data):\n    count = 0\n    for i in range(len(data)):\n        for j in range(i+1, len(data)):\n            if (data[i] + data[j]) % 2 == 0:\n                count += 1\n    return count"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 108,
+    "question": "Buat fungsi yang menerima string dan menghapus semua spasi.",
+    "answer": [
+      "def hapus_spasi(teks):\n    return teks.replace(' ', '')"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 109,
+    "question": "Buat fungsi yang menerima dua list dan mengembalikan elemen yang hanya ada di salah satunya.",
+    "answer": [
+      "def beda_list(a, b):\n    return list(set(a) ^ set(b))"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 110,
+    "question": "Buat fungsi yang menerima list angka dan mengembalikan list angka positif saja.",
+    "answer": [
+      "def filter_positif(data):\n    return [x for x in data if x > 0]"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 111,
+    "question": "Buat fungsi untuk mengecek apakah dua list memiliki panjang dan urutan elemen yang sama.",
+    "answer": [
+      "def sama_panjang_dan_isi(a, b):\n    return a == b"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 112,
+    "question": "Buat fungsi untuk menyisipkan angka ke posisi tengah dari list.",
+    "answer": [
+      "def sisip_tengah(data, angka):\n    tengah = len(data) // 2\n    return data[:tengah] + [angka] + data[tengah:]"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 113,
+    "question": "Buat fungsi untuk menggabungkan dua list dan hapus elemen duplikat.",
+    "answer": [
+      "def gabung_unik(a, b):\n    return list(set(a + b))"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 114,
+    "question": "Buat fungsi untuk mengubah semua huruf vokal pada string menjadi huruf besar.",
+    "answer": [
+      "def vokal_besar(teks):\n    return ''.join(c.upper() if c in 'aiueo' else c for c in teks)"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 115,
+    "question": "Buat fungsi yang menerima string dan mengembalikan string tanpa angka.",
+    "answer": [
+      "def hapus_angka(teks):\n    return ''.join(c for c in teks if not c.isdigit())"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 116,
+    "question": "Buat fungsi untuk membagi list menjadi dua bagian yang sama panjang.",
+    "answer": [
+      "def bagi_dua(data):\n    tengah = len(data) // 2\n    return data[:tengah], data[tengah:]"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 117,
+    "question": "Buat fungsi untuk mencari median dari list angka.",
+    "answer": [
+      "def cari_median(data):\n    data.sort()\n    n = len(data)\n    if n % 2 == 0:\n        return (data[n//2 - 1] + data[n//2]) / 2\n    return data[n//2]"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 118,
+    "question": "Buat fungsi untuk menghitung rata-rata dari list yang tidak kosong.",
+    "answer": [
+      "def rata_rata(data):\n    return sum(data) / len(data)"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 119,
+    "question": "Buat fungsi untuk menemukan elemen yang muncul tepat satu kali dalam list.",
+    "answer": [
+      "def muncul_sekali(data):\n    return [x for x in data if data.count(x) == 1]"
+    ],
+    "level": "advanced"
+  },
+  {
+    "id": 120,
+    "question": "Buat fungsi untuk menghapus elemen ganjil dari list tanpa mengubah urutan.",
+    "answer": [
+      "def hapus_ganjil(data):\n    return [x for x in data if x % 2 == 0]"
+    ],
+    "level": "advanced"
+  }
+]

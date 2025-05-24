@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduPython Adventure - Main Menu</title>
+  <link rel="icon" href="/static/images/favicon.jpg" type="image/png">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <style>
+    .settings-close-btn {
+      background-color: transparent;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <img src="/static/images/EduPython Adventure.png" alt="" class="header-image">
+  </div>
+
+  <div id="auth-container">
+    <button id="auth-button" onclick="handleAuthClick()">Login / Registrasi</button>
+    <div id="auth-dropdown" class="dropdown-menu" style="display: none;">
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="menu">
+    <a href="#" class="btn" onclick="openDifficultyPopup()">NEW GAME</a>
+    <a href="#" class="btn" onclick="handleLoad()">LOAD</a>
+    <a href="#" class="btn" onclick="openSettings()">SETTINGS</a>
+    <a href="#" class="btn" onclick="openHelp()">HELP</a>
+    <a href="#" onclick="logout()" class="btn">QUIT</a>
+  </div>
+  <div id="leaderboard-panel" class="leaderboard-panel">
+    <button class="close-leaderboard" onclick="toggleLeaderboard()">×</button>
+    <div id="leaderboard"></div>
+  </div>
+
+  <button class="open-leaderboard" onclick="toggleLeaderboard()">🏆 Lihat Leaderboard</button>
+
+  <!-- Modal Settings -->
+  <div id="settingsModal" class="modal">
+    <div class="modal-content">
+      <h2>Settings</h2>
+      <div class="volume-control">
+        <span class="volume-icon">🔉</span>
+        <span class="volume-text">Volume</span>
+        <input type="range" id="volume" min="0" max="100" value="50" />
+      </div>
+    </div>
+  </div>
+
+  <div id="login-popup" class="popup" style="display: none;">
+    <div class="popup-content">
+      <h3>Login / Registrasi</h3>
+      <input type="text" id="username" class="username" placeholder="Username" />
+      <input type="password" id="password" class="username" placeholder="Password" />
+      <button onclick="submitLogin()">Login</button>
+    </div>
+  </div>
+
+  <div id="difficulty-modal" class="modal" style="display: none">
+    <div class="modal-content1">
+      <h2>Pilih Kesulitan</h2>
+      <button class="btn" onclick="startGame('beginner')">
+        Pemula
+      </button>
+      <button class="btn" onclick="startGame('intermediate')">
+        Menengah
+      </button>
+      <button class="btn" onclick="startGame('advanced')">
+        Lanjutan
+      </button>
+    </div>
+  </div>
+
+  <div id="help-popup">
+    <div class="help-box">
+      <h3>Help</h3>
+      <div class="tab-buttons">
+        <button class="tab-btn active" onclick="showHelpTab('beginner')">Pemula</button>
+        <button class="tab-btn" onclick="showHelpTab('intermediate')">Menengah</button>
+        <button class="tab-btn" onclick="showHelpTab('advanced')">Lanjutan</button>
+      </div>
+      <div id="help-tab-content">
+        <!-- Konten diisi JS -->
+      </div>
+    </div>
+  </div>
+
+</body>
+<script src="/static/js/style.js"></script>
+<script src="/static/js/main.js"></script>
+<script>
+  function openDifficultyPopup() {
+    document.getElementById("difficulty-modal").style.display = "flex";
+  }
+  function startGame(level) {
+    localStorage.removeItem("startTime");
+    localStorage.removeItem("isPaused");
+    localStorage.removeItem("pauseStart");
+    localStorage.removeItem("score");
+    localStorage.removeItem("userHints");
+    localStorage.removeItem("holes");
+    localStorage.removeItem("playerX");
+    localStorage.removeItem("playerY");
+    localStorage.removeItem("obstacles");
+    localStorage.removeItem("skipDifficulty");
+    localStorage.removeItem("answeredIds");
+    localStorage.removeItem("answeredQuestions");
+    localStorage.removeItem("timeLeft");
+    localStorage.setItem("selectedDifficulty", level);
+    localStorage.setItem("skipDifficulty", "true");
+    localStorage.removeItem("introSeen");
+    window.location.href = '/play?mode=new';
+  }
+</script>
+
+</html>
