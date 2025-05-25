@@ -26,7 +26,6 @@ window.addEventListener('load', () => {
 
 window.addEventListener('click', function(event) {
     const modal = document.getElementById('settingsModal');
-    const content = document.querySelector('.modal-content');
   
     if (event.target === modal) {
       modal.style.display = 'none';
@@ -118,6 +117,14 @@ function openHelp() {
 
 window.addEventListener('click', function(event) {
     const modal = document.getElementById("help-popup");
+  
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+});
+
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById("difficulty-modal");
   
     if (event.target === modal) {
       modal.style.display = 'none';
