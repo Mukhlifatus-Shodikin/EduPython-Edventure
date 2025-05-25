@@ -83,7 +83,6 @@ body {
   padding: 10px;
   margin: 0 20px 10px 20px;
   height: 200px;
-  width: calc(100% - 40px);
   line-height: 1.5;
   resize: none;
   outline: none;
