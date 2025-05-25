@@ -1014,7 +1014,7 @@ function spawnHintCoin() {
   const key = `${x},${y}`;
 
   if (savedLevel === 'beginner') {
-    if (!occupied.has(key) && !isInRiver(x) && !isBridge(x, y)) {
+    if (!occupied.has(key) && !isInRiver(x) && !isBridge(x, y) && !holes.some(h => h.x === x && h.y === y && !h.solved) && !obstacles.some(o => o.x === x && o.y === y)) {
       let coin = { x, y, timeoutId: null };
       occupied.add(key);
       activeHintCoins.push(coin);
@@ -1030,7 +1030,23 @@ function spawnHintCoin() {
       }, 30000);
     }
   } else if (savedLevel === 'intermediate') {
-    if (!occupied.has(key) && !isBoulder(x, y)) {
+    if (!occupied.has(key) && !isBoulder(x, y) && !holes.some(h => h.x === x && h.y === y && !h.solved) && !obstacles.some(o => o.x === x && o.y === y)) {
+      let coin = { x, y, timeoutId: null };
+      occupied.add(key);
+      activeHintCoins.push(coin);
+
+      const coinEl = document.createElement("div");
+      coinEl.className = "sprite-coin";
+      coinEl.style.left = x + "px";
+      coinEl.style.top = y + "px";
+      document.querySelector(".map-container").appendChild(coinEl);
+
+      coin.timeoutId = setTimeout(() => {
+        removeHintCoin(coin);
+      }, 30000);
+    }
+  }else{
+    if (!occupied.has(key) && !holes.some(h => h.x === x && h.y === y && !h.solved) && !obstacles.some(o => o.x === x && o.y === y)) {
       let coin = { x, y, timeoutId: null };
       occupied.add(key);
       activeHintCoins.push(coin);
