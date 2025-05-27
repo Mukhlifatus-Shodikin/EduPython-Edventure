@@ -411,6 +411,7 @@ function showQuestion(hole) {
   localStorage.setItem("holes", JSON.stringify(holes));
 
   activeHole = hole;
+  triggerVirusIfOnHole();
   localStorage.setItem("activeHoleId", hole.id);
   document.querySelector(".instruction").innerText = "\n\n" + hole.question;
   document.getElementById("code-editor").value = "";
@@ -1045,7 +1046,7 @@ function spawnHintCoin() {
         removeHintCoin(coin);
       }, 30000);
     }
-  }else{
+  } else {
     if (!occupied.has(key) && !holes.some(h => h.x === x && h.y === y && !h.solved) && !obstacles.some(o => o.x === x && o.y === y)) {
       let coin = { x, y, timeoutId: null };
       occupied.add(key);
@@ -1409,4 +1410,86 @@ function showIntroLine(line) {
   container.appendChild(wrapper);
 
   container.scrollTop = container.scrollHeight;
+}
+
+function triggerVirusIfOnHole() {
+  const level = localStorage.getItem("selectedDifficulty");
+  if (level !== "intermediate" && level !== "advanced") return;
+
+  const currentHole = checkHole();
+  if (!currentHole || currentHole.solved) return;
+
+  const delay = Math.floor(Math.random() * 15000) + 15000; // antara 15–30 detik
+  let virusChance = 0.4; // default untuk intermediate
+
+  if (level === "advanced") {
+    virusChance = 0.8; // lebih sering
+  }
+
+  const holeRef = currentHole;
+
+  setTimeout(() => {
+    const stillOnHole = checkHole() === holeRef && !holeRef.solved;
+    if (stillOnHole && Math.random() < virusChance) {
+      showVirusEffectAndShuffle();
+    }
+  }, delay);
+}
+
+function reshuffleQuestionPool() {
+  const storedAnswered = new Set(JSON.parse(localStorage.getItem("answeredIds") || "[]"));
+  const available = questions.filter(q => !storedAnswered.has(q.id));
+
+  if (available.length === 0) return;
+
+  for (let i = available.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [available[i], available[j]] = [available[j], available[i]];
+  }
+
+  const newPool = available.map(q => q.id);
+  localStorage.setItem("shuffledPool", JSON.stringify(newPool));
+}
+
+function showVirusEffectAndShuffle() {
+  const map = document.querySelector(".map-container");
+
+  // Efek visual virus
+  const flash = document.createElement("div");
+  flash.style.position = "absolute";
+  flash.style.top = "0";
+  flash.style.left = "0";
+  flash.style.width = "100%";
+  flash.style.height = "100%";
+  flash.style.backgroundColor = "rgba(255,0,0,0.4)";
+  flash.style.zIndex = 999;
+  flash.style.animation = "fadeOut 0.8s forwards";
+  map.appendChild(flash);
+
+  const notif = document.createElement("div");
+  notif.className = "virus-notif";
+  notif.innerText = "⚠️ Virus menyerang! Soalmu telah diacak ulang!";
+  document.body.appendChild(notif);
+
+  // Reshuffle pool soal
+  reshuffleQuestionPool();
+
+  // ❗ Ganti soal aktif dengan yang baru
+  if (activeHole && !activeHole.solved) {
+    const newQuestion = getRandomQuestion();
+    if (newQuestion) {
+      activeHole.question = newQuestion.question;
+      activeHole.answer = newQuestion.answer;
+      localStorage.setItem("holes", JSON.stringify(holes));
+      document.querySelector(".instruction").innerText = "\n\n" + activeHole.question;
+      document.getElementById("code-editor").value = "";
+      console.log("soal diacak");
+    }
+  }
+
+  // Hapus efek setelah 3 detik
+  setTimeout(() => {
+    flash.remove();
+    notif.remove();
+  }, 3000);
 }

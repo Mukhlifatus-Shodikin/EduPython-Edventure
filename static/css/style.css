@@ -886,3 +886,31 @@ body {
 .custom-chat.bug .custom-name {
   color: #a80000;
 }
+
+.virus-notif {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff4444;
+  color: white;
+  padding: 20px 40px;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  z-index: 9999;
+  animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) scale(0.8); }
+  10% { opacity: 1; transform: translateX(-50%) scale(1); }
+  90% { opacity: 1; transform: translateX(-50%) scale(1); }
+  100% { opacity: 0; transform: translateX(-50%) scale(0.8); }
+}
