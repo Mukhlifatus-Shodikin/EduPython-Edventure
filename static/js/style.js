@@ -1,43 +1,78 @@
 function openSettings() {
-    document.getElementById('settingsModal').style.display = 'block';
+  document.getElementById('settingsModal').style.display = 'block';
 }
 
 const volumeSlider = document.getElementById('volume');
 const volumeIcon = document.querySelector('.volume-icon');
 
+let audioStarted = false;
+let gainNode;
+
+// Volume handler tetap aktif sejak awal
 volumeSlider.addEventListener('input', () => {
   const volume = volumeSlider.value;
   localStorage.setItem('volume', volume);
 
-  // (opsional) update ikon sesuai volume
-  const volumeIcon = document.querySelector('.volume-icon');
+  if (gainNode) {
+    gainNode.gain.value = volume / 100;
+  }
+
   if (volume == 0) volumeIcon.textContent = '🔇';
   else if (volume < 50) volumeIcon.textContent = '🔈';
   else volumeIcon.textContent = '🔊';
 });
 
 window.addEventListener('load', () => {
-    const savedVolume = localStorage.getItem('volume');
-    if (savedVolume !== null) {
-      volumeSlider.value = savedVolume;
-      volumeSlider.dispatchEvent(new Event('input')); // trigger icon update
-    }
-  });
-
-window.addEventListener('click', function(event) {
-    const modal = document.getElementById('settingsModal');
-  
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
+  const savedVolume = localStorage.getItem('volume') || 50;
+  volumeSlider.value = savedVolume;
+  volumeSlider.dispatchEvent(new Event('input'));
 });
 
-window.addEventListener('click', function(event) {
-    const modal = document.getElementById('login-popup');
-  
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
+// Tunggu klik pertama untuk memulai audioContext
+document.addEventListener("click", async () => {
+  if (audioStarted) return;
+  audioStarted = true;
+
+  try {
+    console.log("🟢 Memulai audio setelah klik...");
+
+    const response = await fetch('/static/audio/dream-chaser-123869.mp3');
+    const arrayBuffer = await response.arrayBuffer();
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    gainNode = audioContext.createGain();
+
+    const buffer = await audioContext.decodeAudioData(arrayBuffer);
+    const source = audioContext.createBufferSource();
+    source.buffer = buffer;
+    source.loop = true;
+
+    const savedVolume = localStorage.getItem('volume') || 50;
+    gainNode.gain.value = savedVolume / 100;
+
+    source.connect(gainNode).connect(audioContext.destination);
+    source.start(0);
+
+    console.log("✅ Audio diputar setelah klik (looping, volume:", gainNode.gain.value, ")");
+  } catch (err) {
+    console.error("❌ Gagal memainkan audio:", err);
+  }
+}, { once: true });
+
+
+window.addEventListener('click', function (event) {
+  const modal = document.getElementById('settingsModal');
+
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
+window.addEventListener('click', function (event) {
+  const modal = document.getElementById('login-popup');
+
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
 });
 
 function showHelpTab(level) {
@@ -110,23 +145,23 @@ print(hitung_faktorial(5))
 }
 
 function openHelp() {
-    const level = localStorage.getItem("selectedDifficulty") || "beginner";
-    showHelpTab(level);
-    document.getElementById("help-popup").style.display = "flex";
-  }
+  const level = localStorage.getItem("selectedDifficulty") || "beginner";
+  showHelpTab(level);
+  document.getElementById("help-popup").style.display = "flex";
+}
 
-window.addEventListener('click', function(event) {
-    const modal = document.getElementById("help-popup");
-  
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
+window.addEventListener('click', function (event) {
+  const modal = document.getElementById("help-popup");
+
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
 });
 
-window.addEventListener('click', function(event) {
-    const modal = document.getElementById("difficulty-modal");
-  
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
+window.addEventListener('click', function (event) {
+  const modal = document.getElementById("difficulty-modal");
+
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
 });
