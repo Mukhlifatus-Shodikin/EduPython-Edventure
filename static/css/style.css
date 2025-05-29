@@ -914,3 +914,12 @@ body {
   90% { opacity: 1; transform: translateX(-50%) scale(1); }
   100% { opacity: 0; transform: translateX(-50%) scale(0.8); }
 }
+
+.puzzle-piece {
+  width: 100px;
+  height: 100px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  background-size: 300px 300px;
+  background-repeat: no-repeat;
+}

@@ -20,6 +20,12 @@ if (!localStorage.getItem("username")) {
   localStorage.setItem("username", "guest" + guestNumber);
   localStorage.setItem("mode", "guest");
 }
+let firewallCooldown = false;
+let gamePausedByPuzzle = false;
+let firewallTriggeredCount = 0;
+const maxFirewallTriggersBase = 3;
+const puzzleCorrectOrder = [...Array(9).keys()];
+let puzzleCurrentOrder = [...puzzleCorrectOrder];
 
 let introLines = [];
 let introIndex = 0;
@@ -622,14 +628,17 @@ function selectDifficulty(level) {
   if (selectedDifficulty === 'beginner') {
     document.querySelector('.map-container').style.backgroundImage = "url('/static/images/Data-Valley.png')";
     localStorage.setItem("obstacleImage", "/static/images/tree.png");
+    localStorage.setItem("currentLevel", "1");
     renderBridge();
   } else if (selectedDifficulty === 'intermediate') {
     document.querySelector('.map-container').style.backgroundImage = "url('/static/images/Logic-Mountain.png')";
     document.querySelector('.map-container').style.backgroundSize = "cover";
     localStorage.setItem("obstacleImage", "/static/images/rock.png");
+    localStorage.setItem("currentLevel", "2");
   } else {
     document.querySelector('.map-container').style.backgroundImage = "url('/static/images/Algorithm-forrest.png')";
     localStorage.setItem("obstacleImage", "/static/images/bush.png");
+    localStorage.setItem("currentLevel", "3");
   }
 
   fetch("/static/questions/questions.json")
@@ -837,6 +846,7 @@ function loadLeaderboard() {
 
 window.addEventListener("load", () => {
   loadGameState();
+  startFirewallScheduler();
   const pathname = window.location.pathname;
   const mode = localStorage.getItem("mode");
   const username = localStorage.getItem("username");
@@ -1492,4 +1502,134 @@ function showVirusEffectAndShuffle() {
     flash.remove();
     notif.remove();
   }, 3000);
+}
+
+function startFirewallScheduler() {
+  setInterval(() => {
+    if (firewallCooldown || gamePausedByPuzzle) return;
+
+    if (firewallTriggeredCount >= getFirewallTriggerLimit()) return;
+
+    const chance = Math.random();
+    if (chance < getFirewallTriggerChance()) {
+      console.log("🚨 Firewall muncul di level", getCurrentLevel());
+      openPuzzlePopup();
+      freezeCharacter();
+      firewallCooldown = true;
+      firewallTriggeredCount++;
+
+      setTimeout(() => {
+        firewallCooldown = false;
+      }, 30000); // 30 detik cooldown
+    }
+  }, 10000); // cek setiap 10 detik
+}
+
+function openPuzzlePopup() {
+  const puzzlePopup = document.getElementById("puzzlePopup");
+  puzzlePopup.style.display = "block";
+  puzzleCurrentOrder = [...puzzleCorrectOrder];
+  shuffle(puzzleCurrentOrder);
+  renderPuzzlePieces();
+  freezeCharacter();
+}
+
+function checkPuzzleCompletion() {
+  const puzzleBoard = document.getElementById("puzzleBoard");
+  const puzzleMessage = document.getElementById("puzzleMessage");
+  const pieces = puzzleBoard.querySelectorAll(".puzzle-piece");
+  const order = Array.from(pieces).map(p => parseInt(p.dataset.index));
+  const isCorrect = order.every((val, i) => val === puzzleCorrectOrder[i]);
+
+  if (isCorrect) {
+    puzzleMessage.innerText = "🛡️ Firewall berhasil dilewati!";
+    setTimeout(() => {
+      puzzlePopup.style.display = "none";
+      puzzleMessage.innerText = "";
+      unfreezeCharacter();
+    }, 1500);
+  }
+}
+
+function freezeCharacter() {
+  gamePausedByPuzzle = true;
+}
+
+function unfreezeCharacter() {
+  gamePausedByPuzzle = false;
+}
+
+document.addEventListener("keydown", function (e) {
+  if (gamePausedByPuzzle) {
+    e.preventDefault();
+    return;
+  }
+  // Pergerakan karakter lainnya tetap jalan
+});
+
+function renderPuzzlePieces() {
+  const puzzleBoard = document.getElementById("puzzleBoard");
+  puzzleBoard.innerHTML = "";
+  puzzleCurrentOrder.forEach((index) => {
+    const piece = document.createElement("div");
+    piece.className = "puzzle-piece";
+    piece.draggable = true;
+    piece.dataset.index = index;
+    const x = (index % 3) * -100;
+    const y = Math.floor(index / 3) * -100;
+    piece.style.backgroundImage = "url('/static/images/firewall.png')";
+    piece.style.backgroundPosition = `${x}px ${y}px`;
+
+    piece.addEventListener("dragstart", dragStart);
+    piece.addEventListener("dragover", dragOver);
+    piece.addEventListener("drop", drop);
+
+    puzzleBoard.appendChild(piece);
+  });
+}
+
+let draggedPuzzle;
+
+function dragStart(e) {
+  draggedPuzzle = e.target;
+}
+
+function dragOver(e) {
+  e.preventDefault();
+}
+
+function drop(e) {
+  e.preventDefault();
+  if (draggedPuzzle === e.target) return;
+
+  const puzzleBoard = document.getElementById("puzzleBoard");
+  const from = Array.from(puzzleBoard.children).indexOf(draggedPuzzle);
+  const to = Array.from(puzzleBoard.children).indexOf(e.target);
+
+  puzzleBoard.insertBefore(draggedPuzzle, e.target);
+  puzzleBoard.insertBefore(e.target, puzzleBoard.children[from]);
+
+  checkPuzzleCompletion();
+}
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+function getCurrentLevel() {
+  // Fungsi dummy, harus diganti sesuai sistem level kamu
+  return parseInt(localStorage.getItem("currentLevel") || "1");
+}
+
+function getFirewallTriggerLimit() {
+  const level = getCurrentLevel();
+  return Math.min(6, maxFirewallTriggersBase + Math.floor(level / 3)); // naik tiap 3 level, max 6
+}
+
+function getFirewallTriggerChance() {
+  const level = getCurrentLevel();
+  return Math.min(0.3, 0.05 + 0.03 * level); // naik 3% per level, max 30%
 }
