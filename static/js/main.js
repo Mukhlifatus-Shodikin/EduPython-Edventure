@@ -1011,6 +1011,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (hintBtn) {
     hintBtn.addEventListener("click", useHint);
   }
+  const hintText = document.getElementById("hint-text");
+  if (hintText) {
+    hintText.addEventListener("copy", (e) => {
+      e.preventDefault();
+      alert("Menyalin hint tidak diperbolehkan!");
+    });
+  }
 });
 
 let userHints = 3;
@@ -1108,33 +1115,45 @@ function updateHintHUD() {
 }
 
 function useHint() {
-  if (userHints <= 0) return resolve();
-  if (!activeHole) return resolve();
+  if (!activeHole) return;
 
-  userHints--;
+  if (userHints > 0) {
+    userHints--;
+  } else if (score >= 5) {
+    score -= 5;
+  } else {
+    return;
+  }
+
   updateHintHUD();
+  updateHUD();
 
   const hintTextEl = document.getElementById("hint-text");
 
-  // Tangani array atau string tunggal
-  let hintLines = [];
+  let hintLine = "";
 
-  if (Array.isArray(activeHole.answer)) {
-    hintLines = activeHole.answer;
+  if (Array.isArray(activeHole.answer) && activeHole.answer.length > 0) {
+    hintLine = activeHole.answer[0]; // hanya tampilkan elemen pertama
+  } else if (typeof activeHole.answer === "string") {
+    hintLine = activeHole.answer;
   } else {
-    hintLines = [activeHole.answer];
+    hintLine = "Tidak ada hint tersedia.";
   }
 
-  hintLines = hintLines.slice(0, 3);
-  hintTextEl.textContent = hintLines.join("\n");
+  hintTextEl.textContent = hintLine;
 
-  // Syntax highlight jika Prism tersedia
   if (typeof Prism !== 'undefined') {
     Prism.highlightElement(hintTextEl);
   }
 
-  // Tampilkan popup
   document.getElementById("hint-popup").style.display = "flex";
+
+  if (hintTextEl) {
+  hintTextEl.oncopy = (e) => {
+    e.preventDefault();
+    alert("Menyalin hint tidak diperbolehkan!");
+  };
+}
 }
 
 function closeHintPopup() {

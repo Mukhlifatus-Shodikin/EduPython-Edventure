@@ -58,12 +58,14 @@
         <button onclick="resetCode()" class="reset-btn">↻</button>
       </div>
       <div class="code-footer">
-        <button onclick="pauseGame()" class="pause-btn">⏸️</button>
-        <button onclick="resumeGame()" class="resume-btn" style="display: none">
-          ▶️
-        </button>
-        <button onclick="openHelp()" class="settings-btn">❓</button>
-        <button onclick="openSettings()" class="settings-btn">⚙️</button>
+        <div class="footer-left">
+          <button onclick="pauseGame()" class="footer-btn pause-btn">⏸️</button>
+          <button class="footer-btn resume-btn" style="display: none;">▶️</button>
+          <button onclick="openHelp()" class="footer-btn">❓</button>
+        </div>
+        <div class="footer-right">
+          <button onclick="openSettings()" class="footer-gear">⚙️</button>
+        </div>
       </div>
     </div>
   </div>
@@ -139,12 +141,14 @@
   </div>
 
   <div id="puzzlePopup" class="modal" style="display: none;">
-  <div class="modal-content1">
-    <h3>🔥 Firewall Puzzle</h3>
-    <div id="puzzleBoard" style="display: flex; flex-wrap: wrap; width: 300px; height: 300px; margin: 10px auto; border: 2px solid #000;"></div>
-    <p id="puzzleMessage" style="text-align:center; font-weight: bold;"></p>
+    <div class="modal-content1">
+      <h3>Firewall Puzzle</h3>
+      <div id="puzzleBoard"
+        style="display: flex; flex-wrap: wrap; width: 300px; height: 300px; margin: 10px auto; border: 2px solid #000;">
+      </div>
+      <p id="puzzleMessage" style="text-align:center; font-weight: bold;"></p>
+    </div>
   </div>
-</div>
 
 </body>
 <script src="/static/js/style.js"></script>
@@ -226,4 +230,5 @@
     }
   });
 </script>
+
 </html>

@@ -335,33 +335,6 @@ body {
   border-radius: 4px;
 }
 
-.code-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  background-color: #646464;
-  padding: 10px 20px 20px 20px;
-}
-
-.pause-btn,
-.settings-btn,
-.resume-btn {
-  padding: 10px 10px;
-  border: none;
-  border-radius: 50%;
-  background-color: #cccccc;
-  color: white;
-  font-family: monospace;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.pause-btn:hover,
-.settings-btn:hover,
-.resume-btn:hover {
-  background-color: #9494d4;
-}
 
 .game-over-popup {
   display: none;
@@ -597,6 +570,14 @@ body {
   white-space: pre-wrap;
   word-break: break-word;
   line-height: 1.5;
+}
+
+#hint-text {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
 }
 
 .pause-popup {
@@ -922,4 +903,55 @@ body {
   border: 1px solid #ccc;
   background-size: 300px 300px;
   background-repeat: no-repeat;
+}
+
+.code-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #b9b9b9;
+  padding: 10px 20px 20px 20px;
+}
+
+.footer-left {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-btn {
+  width: 60px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background-color: #868282;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+}
+
+.footer-btn:hover {
+  background-color: #b3a9a9;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.footer-gear {
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  transition: transform 0.2s ease;
+}
+
+.footer-gear:hover {
+  transform: scale(1.2);
 }
