@@ -1539,7 +1539,7 @@ function startFirewallScheduler() {
 
       setTimeout(() => {
         firewallCooldown = false;
-      }, 30000); // 30 detik cooldown
+      }, 50000); // 30 detik cooldown
     }
   }, 10000); // cek setiap 10 detik
 }
