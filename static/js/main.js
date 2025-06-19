@@ -976,10 +976,17 @@ window.addEventListener("load", () => {
               localStorage.setItem("answeredQuestions", JSON.stringify(parsed.answeredQuestions));
             }
 
-            const timeLeft = parsed.timeLeft || 600;
+            let timeLeft = parsed.timeLeft;
+            if (!timeLeft || isNaN(timeLeft)) {
+              timeLeft = 600;
+            }
             const effectiveTime = timeLeft < 300 ? 300 : timeLeft;
             const newStart = Date.now() - (600 - effectiveTime) * 1000;
             localStorage.setItem("startTime", newStart);
+
+            if (!localStorage.getItem("startTime")) {
+              localStorage.setItem("startTime", Date.now());
+            }
 
             selectDifficulty(selectedDifficulty);
             setTimeout(afterGameLoaded, 300);
@@ -1149,11 +1156,11 @@ function useHint() {
   document.getElementById("hint-popup").style.display = "flex";
 
   if (hintTextEl) {
-  hintTextEl.oncopy = (e) => {
-    e.preventDefault();
-    alert("Menyalin hint tidak diperbolehkan!");
-  };
-}
+    hintTextEl.oncopy = (e) => {
+      e.preventDefault();
+      alert("Menyalin hint tidak diperbolehkan!");
+    };
+  }
 }
 
 function closeHintPopup() {
